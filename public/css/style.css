@@ -24,6 +24,16 @@ body {
   color: #222222 !important;
 }
 
+@media (max-width: 768px) {
+  .navbar-collapse.show {
+    height: 100vh;
+    position: relative !important;
+    z-index: 1000 !important;
+    
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
 /* Footer */
 .f-info-links a {
   text-decoration: none;
@@ -117,6 +127,8 @@ body {
   padding-left: 0;
   padding-right: 0;
 }
+
+
 
 
 /* Map */
