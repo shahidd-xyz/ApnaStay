@@ -25,13 +25,50 @@ body {
 }
 
 @media (max-width: 768px) {
-  .navbar-collapse.show {
+  .navbar-collapse {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    position: relative !important;
-    z-index: 1000 !important;
-    
-    background-color: rgba(255, 255, 255, 0.9) !important;
+
+    background: rgba(255,255,255,0.92);
+    z-index: 1000;
+
+    transform: translateY(-100%);
+    opacity: 0;
+
+    transition: transform 0.35s ease, opacity 0.3s ease;
   }
+
+  /* OPEN state */
+  .navbar-collapse.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* IMPORTANT: CLOSING animation */
+  .navbar-collapse.collapsing {
+    transform: translateY(-100%);
+    opacity: 0;
+
+    height: 100vh !important; /* stop Bootstrap height override */
+    transition: transform 0.35s ease, opacity 0.3s ease;
+  }
+
+  .navbar-collapse {
+    will-change: transform, opacity;
+  }
+
+  .navbar-nav, .navbar-nav form, .navbar-nav a{
+    margin-left: 15px;
+  }
+
+  .navbar-nav a i{
+    margin-left: -10px;
+    font-size: 20px;  
+  }
+
 }
 
 /* Footer */
@@ -69,6 +106,12 @@ body {
 }
 
 /* Cards */
+
+/* Temp */
+.row{
+  width: 100% !important; 
+}
+
 .listing-card {
   border: none !important;
   margin-bottom: 2rem;
@@ -102,6 +145,20 @@ body {
   background-color: white;
 }
 
+#display-card{
+  margin: 0 auto !important;
+}
+
+/* Temp */
+
+@media (max-width: 768px){
+   .listing-link{
+    /* display: block !important; */
+    margin: 0 auto !important;
+    margin-top: 10px !important;
+   }
+}
+
 /* New Page */
 .add-btn {
   background-color: #fe424d !important;
@@ -128,11 +185,46 @@ body {
   padding-right: 0;
 }
 
-
+@media (max-width: 768px){
+  .btns .edit-btn{
+    width: 60px;
+  }
+  .show-card, .review{
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+  .show-container{
+    margin: 0 auto !important;
+  }
+  .edit-btn{
+    margin: 0 !important;
+  }
+  .btns{
+    height: 37.33px;
+  }
+}
 
 
 /* Map */
+
+/* Temp */
+.map-wrapper{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
 #map{
   height: 400px;
-  width: 80vh;
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .map-wrapper{
+    width: 90%;
+  }
+  #map{
+    height: 300px;
+    width: 90%;
+  }
 }
