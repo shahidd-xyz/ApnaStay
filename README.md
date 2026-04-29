@@ -82,3 +82,6 @@ Project Structure:
     ├── index.js            # Initialization script entry point
     └── data.js             # Sample data for seeding
 ```
+
+License:
+This project is licensed under the MIT License.
