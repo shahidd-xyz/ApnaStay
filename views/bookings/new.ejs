@@ -1,0 +1,117 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/bookings.css" />
+
+<div class="container booking-page">
+  <h2 class="booking-heading">Book Your Stay</h2>
+
+  <div class="row g-5">
+    <!-- Left -->
+
+    <div class="col-lg-5">
+      <div class="booking-card">
+        <img
+          src="<%= listing.image.url %>"
+          class="booking-img"
+          alt="<%= listing.title %>"
+        />
+
+        <div class="booking-info">
+          <h3><%= listing.title %></h3>
+
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            <%= listing.location %>, <%= listing.country %>
+          </p>
+
+          <h4>
+            ₹<%= listing.price.toLocaleString("en-IN") %>
+            <span>/ night</span>
+          </h4>
+
+          <hr />
+
+          <h5>Amenities</h5>
+
+          <ul>
+            <li><i class="fa-solid fa-wifi"></i> Free WiFi</li>
+
+            <li><i class="fa-solid fa-car"></i> Parking</li>
+
+            <li><i class="fa-solid fa-snowflake"></i> Air Conditioning</li>
+
+            <li><i class="fa-solid fa-utensils"></i> Kitchen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+
+    <div class="col-lg-7">
+      <div class="booking-form-card">
+        <form action="/listings/<%= listing._id %>/bookings" method="POST">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Check-in </label>
+
+              <input type="date" class="form-control" name="booking[checkIn]" required />
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <label class="form-label"> Check-out </label>
+
+              <input
+                type="date"
+                class="form-control"
+                name="booking[checkOut]"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label"> Guests </label>
+
+            <input
+              type="number"
+              class="form-control"
+              min="1"
+              value="1"
+              name="booking[guests]"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label"> Phone Number </label>
+
+            <input
+              type="tel"
+              class="form-control"
+              placeholder="+91 XXXXX XXXXX"
+              name="booking[phone]"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label"> Special Request </label>
+
+            <textarea
+              class="form-control"
+              rows="8"
+              name="booking[specialRequest]"
+              placeholder="Any special requirements..."
+            ></textarea>
+          </div>
+
+          <button class="btn booking-btn">
+            <i class="fa-solid fa-calendar-check me-2"></i>
+
+            Request Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

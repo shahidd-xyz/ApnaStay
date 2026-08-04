@@ -1,0 +1,133 @@
+.signup-page {
+  background: #fff;
+  min-height: calc(100vh - 76px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 600px;
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+.signup-header {
+  text-align: center;
+  padding: 3rem 3rem 2rem;
+}
+
+.signup-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.signup-subtitle {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.signup-body {
+  padding: 0 3rem 3rem;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-box i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  z-index: 2;
+}
+
+.signup-input {
+  height: 60px;
+  padding-left: 50px;
+  border-radius: 15px;
+  font-size: 1rem;
+}
+
+.signup-input:focus {
+  border-color: #fe424d;
+  box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.15);
+}
+
+.signup-submit-btn {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  background: #fe424d;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.signup-submit-btn:hover {
+  background: #e63946;
+  color: white;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 2rem;
+  color: #6c757d;
+}
+
+.login-text a {
+  text-decoration: none;
+  color: #fe424d;
+  font-weight: 600;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .signup-page {
+    padding: 2rem 1rem;
+  }
+
+  .signup-header {
+    padding: 2rem;
+  }
+
+  .signup-body {
+    padding: 0 2rem 2rem;
+  }
+
+  .signup-logo {
+    width: 75px;
+    height: 75px;
+  }
+
+  .signup-title {
+    font-size: 1.7rem;
+  }
+
+  .signup-input,
+  .signup--submit-btn {
+    height: 55px;
+  }
+}

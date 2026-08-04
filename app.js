@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV != "production"){
+if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
@@ -20,6 +20,7 @@ const User = require("./models/user.js");
 const listingsRouter = require("./routes/listings.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const bookingsRouter = require("./routes/bookings.js");
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -39,7 +40,7 @@ main()
     console.log("Some error occured in the database");
     console.log(err);
   });
-  
+
 async function main() {
   await mongoose.connect(dbUrl);
 }
@@ -50,11 +51,11 @@ const store = MongoStore.create({
   crypto: {
     secret: process.env.SECRET,
   },
-  touchAfter: 24 *3600, //seconds - 24hours
+  touchAfter: 24 * 3600, //seconds - 24hours
 });
 
-store.on("error", ()=>{
-    console.log("Error in Mongo Session Store");
+store.on("error", () => {
+  console.log("Error in Mongo Session Store");
 });
 
 //Session Configuration
@@ -80,15 +81,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currentUser = req.user;
+  res.locals.currentPath = req.path;
   next();
 });
-
-
 
 //Listings Router
 app.use("/listings", listingsRouter);
@@ -98,6 +97,14 @@ app.use("/listings/:id/reviews", reviewsRouter);
 
 //User Router
 app.use("/", userRouter);
+
+//Bookings Router
+
+// Booking Routes (Listing Specific)
+app.use("/listings/:id/bookings", bookingsRouter);
+
+// Booking Routes (User)
+app.use("/bookings", bookingsRouter);
 
 //All Path route
 app.use((req, res, next) => {

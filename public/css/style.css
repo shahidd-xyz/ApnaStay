@@ -10,102 +10,6 @@ body {
   flex: 1;
 }
 
-/* Navbar */
-.navbar {
-  height: 5rem;
-  background-color: white;
-}
-
-.fa-compass {
-  color: #fe424d;
-  font-size: 2rem;
-}
-
-.nav-link {
-  color: #222222 !important;
-}
-
-@media (max-width: 768px) {
-  .navbar-collapse {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-
-    background: rgba(255,255,255,0.92);
-    z-index: 1000;
-
-    transform: translateY(-100%);
-    opacity: 0;
-
-    transition: transform 0.35s ease, opacity 0.3s ease;
-  }
-
-  /* OPEN state */
-  .navbar-collapse.show {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  /* IMPORTANT: CLOSING animation */
-  .navbar-collapse.collapsing {
-    transform: translateY(-100%);
-    opacity: 0;
-
-    height: 100vh !important; /* stop Bootstrap height override */
-    transition: transform 0.35s ease, opacity 0.3s ease;
-  }
-
-  .navbar-collapse {
-    will-change: transform, opacity;
-  }
-
-  .navbar-nav, .navbar-nav form, .navbar-nav a{
-    margin-left: 15px;
-  }
-
-  .navbar-nav a i{
-    margin-left: -10px;
-    font-size: 20px;  
-  }
-
-}
-
-/* Footer */
-.f-info-links a {
-  text-decoration: none;
-  color: #222222;
-}
-
-.f-info-links a:hover {
-  text-decoration: underline;
-}
-
-.f-info-links,
-.f-info-socials,
-.f-info-brand {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.f-info-social i {
-  font-size: 1.2rem;
-  margin-right: 1rem;
-}
-
-.f-info {
-  height: 8rem;
-  display: flex;
-  background-color: #ebebeb;
-  text-align: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: space-evenly;
-}
-
 /* Cards */
 
 /* Temp */
@@ -148,6 +52,7 @@ body {
 
 #display-card{
   margin: 0 auto !important;
+  margin-top: 50px !important;
 }
 
 /* Temp */
@@ -229,4 +134,13 @@ body {
     height: 300px;
     width: 90%;
   }
+}
+
+
+.book-btn{
+  background-color: #fe424d !important;
+}
+
+.book-btn:hover{
+  opacity: 0.8;
 }

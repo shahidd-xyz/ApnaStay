@@ -18,6 +18,19 @@
       <p class="card-text"><%= listing.country %></p>
       <p class="card-text"><%= listing.location %></p>
 
+      <!-- Book Now Button -->
+      <% if(currentUser && !currentUser._id.equals(listing.owner._id)){ %>
+        <div class="mt-4">
+          <a
+            href="/listings/<%= listing._id %>/bookings/new"
+            class="btn btn-danger book-btn book-btn"
+          >
+            <i class="fa-solid fa-calendar-check me-2"></i>
+            Book Now
+          </a>
+        </div>
+      <% } %>
+
       <% if(currentUser && currentUser._id.equals(listing.owner._id)){ %>
   <div class="btns">
     
