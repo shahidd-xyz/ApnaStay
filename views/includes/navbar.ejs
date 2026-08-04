@@ -1,12 +1,3 @@
-<%
-const path = locals.currentPath || "";
-const user = locals.currentUser || null;
-
-const isAuthPage =
-  path === "/signup" ||
-  path === "/login";
-%>
-
 <nav class="navbar navbar-expand-md sticky-top">
 
   <div class="container-fluid">
@@ -41,8 +32,6 @@ const isAuthPage =
       </div>
 
       <!-- Center Search -->
-      <% if (!isAuthPage) { %>
-
         <div class="navbar-nav mx-auto">
 
           <form class="search-form" role="search">
@@ -62,23 +51,16 @@ const isAuthPage =
 
         </div>
 
-      <% } %>
-
       <!-- Right Side -->
       <div class="navbar-nav ms-auto align-items-center">
-
-        <% if (!isAuthPage) { %>
-
           <a class="nav-link nav-btn host-btn" href="/listings/new">
             <i class="fa-solid fa-house me-1"></i>
             Add your home
           </a>
 
-        <% } %>
-
         <% if (!currentUser) { %>
 
-          <% if (path !== "/signup") { %>
+          <% if (currentPath !== "/signup") { %>
 
             <a class="nav-link nav-btn signup-btn" href="/signup">
               Sign Up
@@ -86,7 +68,7 @@ const isAuthPage =
 
           <% } %>
 
-          <% if (path !== "/login") { %>
+          <% if (currentPath !== "/login") { %>
 
             <a class="nav-link nav-btn login-btn" href="/login">
               Login
