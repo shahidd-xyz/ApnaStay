@@ -1,5 +1,10 @@
 <%
+const path = locals.currentPath || "";
 const user = locals.currentUser || null;
+
+const isAuthPage =
+  path === "/signup" ||
+  path === "/login";
 %>
 
 <nav class="navbar navbar-expand-md sticky-top">
@@ -35,43 +40,59 @@ const user = locals.currentUser || null;
 
       </div>
 
-      <!-- Search -->
-      <div class="navbar-nav mx-auto">
+      <!-- Center Search -->
+      <% if (!isAuthPage) { %>
 
-        <form class="search-form" role="search">
+        <div class="navbar-nav mx-auto">
 
-          <input
-            class="form-control search-inp"
-            type="search"
-            placeholder="Search destination"
-          >
+          <form class="search-form" role="search">
 
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            Search
-          </button>
+            <input
+              class="form-control search-inp"
+              type="search"
+              placeholder="Search destination"
+            >
 
-        </form>
+            <button class="btn search-btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              Search
+            </button>
 
-      </div>
+          </form>
+
+        </div>
+
+      <% } %>
 
       <!-- Right Side -->
       <div class="navbar-nav ms-auto align-items-center">
 
-        <a class="nav-link nav-btn host-btn" href="/listings/new">
-          <i class="fa-solid fa-house me-1"></i>
-          Add your home
-        </a>
+        <% if (!isAuthPage) { %>
 
-        <% if (!user) { %>
-
-          <a class="nav-link nav-btn signup-btn" href="/signup">
-            Sign Up
+          <a class="nav-link nav-btn host-btn" href="/listings/new">
+            <i class="fa-solid fa-house me-1"></i>
+            Add your home
           </a>
 
-          <a class="nav-link nav-btn login-btn" href="/login">
-            Login
-          </a>
+        <% } %>
+
+        <% if (!currentUser) { %>
+
+          <% if (path !== "/signup") { %>
+
+            <a class="nav-link nav-btn signup-btn" href="/signup">
+              Sign Up
+            </a>
+
+          <% } %>
+
+          <% if (path !== "/login") { %>
+
+            <a class="nav-link nav-btn login-btn" href="/login">
+              Login
+            </a>
+
+          <% } %>
 
         <% } else { %>
 
@@ -86,7 +107,6 @@ const user = locals.currentUser || null;
           </a>
 
           <a class="nav-link nav-btn logout-btn" href="/logout">
-            <i class="fa-solid fa-right-from-bracket me-1"></i>
             Logout
           </a>
 
