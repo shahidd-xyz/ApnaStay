@@ -1,25 +1,42 @@
+/* ===========================
+        Navbar
+=========================== */
+
 .navbar {
   background: #fff;
-  padding: 0.9rem 2rem;
+  padding: 0.75rem 1.5rem;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand img {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   object-fit: cover;
   border-radius: 50%;
   transform: scale(1.8);
 }
 
-.navbar-nav .nav-link {
-  color: #fe424d !important;
-  font-weight: 500;
-  margin: 0 0.35rem;
-  transition: 0.25s;
+.navbar-nav {
+  align-items: center;
 }
 
-/* Search */
+.navbar-nav .nav-link {
+  color: #fe424d !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin: 0 0.2rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* ===========================
+          Search
+=========================== */
 
 .search-form {
   display: flex;
@@ -27,10 +44,11 @@
 }
 
 .search-inp {
-  width: 260px;
-  padding: 0.65rem 1.3rem;
+  width: 220px;
+  padding: 0.5rem 1rem;
   border: 1px solid #dee2e6;
   border-radius: 30px;
+  font-size: 0.9rem;
   box-shadow: none;
 }
 
@@ -40,14 +58,15 @@
 }
 
 .search-btn {
-  margin-left: 0.6rem;
-  padding: 0.65rem 1.3rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 30px;
   background: #fe424d;
   color: #fff;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .search-btn:hover {
@@ -56,25 +75,28 @@
 }
 
 .search-btn i {
-  margin-right: 0.45rem;
+  margin-right: 0.35rem;
 }
 
-/* Action Buttons */
+/* ===========================
+        Buttons
+=========================== */
 
 .nav-btn {
-  padding: 0.55rem 1.15rem !important;
-  margin-left: 0.5rem;
+  padding: 0.45rem 0.95rem !important;
+  margin-left: 0.35rem;
   border-radius: 30px;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
-.navbar-nav .host-btn {
-  border: 2px solid #fe424d;
+.host-btn {
+  border: 1.5px solid #fe424d;
   color: #fe424d !important;
 }
 
-.navbar-nav .host-btn:hover {
+.host-btn:hover {
   background: #fe424d;
   color: #fff !important;
 }
@@ -84,49 +106,49 @@
   color: #fff !important;
 }
 
-.navbar-nav .signup-btn:hover {
+.signup-btn:hover {
   background: #e63946;
   color: #fff !important;
 }
 
 .login-btn {
-  border: 2px solid #fe424d;
+  border: 1.5px solid #fe424d;
   color: #fe424d !important;
 }
 
-.navbar-nav .login-btn:hover {
+.login-btn:hover {
   background: #fe424d;
   color: #fff !important;
 }
 
 .navbar-nav .logout-btn {
-  background: #fff;
+  border: 1.5px solid #000;
   color: #000 !important;
 }
 
-.navbar-nav .logout-btn:hover {
+.logout-btn:hover {
   background: #000;
   color: #fff !important;
 }
 
 /* ===========================
-        Mobile Only
+        Mobile
 =========================== */
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.9rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .navbar-brand img {
-    width: 45px;
-    height: 45px;
-    transform: scale(1.4);
+    width: 42px;
+    height: 42px;
+    transform: scale(1.3);
   }
 
   .navbar-toggler {
     border: none;
-    padding: 0.25rem;
+    padding: 0;
   }
 
   .navbar-toggler:focus {
@@ -138,45 +160,38 @@
     padding: 1rem;
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   }
 
   .navbar-nav {
     width: 100%;
+    align-items: stretch;
   }
 
   .navbar-nav .nav-link {
-    margin: 0.25rem 0;
+    margin: 0.35rem 0;
     text-align: center;
   }
 
   .search-form {
     width: 100%;
     margin: 1rem 0;
-    display: flex;
     flex-direction: column;
     gap: 0.75rem;
   }
 
-  .search-inp {
+  .search-inp,
+  .search-btn,
+  .nav-btn {
     width: 100%;
   }
 
   .search-btn {
-    width: 100%;
     margin-left: 0;
   }
 
   .nav-btn {
-    width: 100%;
-    margin: 0.4rem 0;
+    margin: 0.35rem 0;
     text-align: center;
-  }
-
-  .host-btn,
-  .signup-btn,
-  .login-btn,
-  .logout-btn {
-    display: block;
   }
 }
